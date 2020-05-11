@@ -8,15 +8,15 @@ import java.util.Optional;
 
 public interface AccountService {
 
-    public List<Account> findAll();
+    List<Account> findAll();
 
-    public Optional<Account> find(String id);
+    Optional<Account> find(String id);
 
-    public Account  save(Account account);
+    Account save(Account account);
 
-    public void delete(Account account);
+    void delete(Account account);
 
-    public void getAccountByStatusAndAndFullNameLike(boolean status, String regex);
+    void getAccountByStatusAndAndFullNameLike(boolean status, String regex);
 
 
-    }
+}

@@ -18,14 +18,14 @@ public class Account
     @Id
     private String id;
 
-    @Field(name = "name", targetType = FieldType.STRING)
+    @Field(name = "username", targetType = FieldType.STRING)
     private String username;
 
-    @Field(name = "pass", targetType = FieldType.STRING)
+    @Field(name = "password", targetType = FieldType.STRING)
     private String password;
 
-    @Field(name = "full_name", targetType = FieldType.STRING)
-    private  String fullName;
+    @Field(name = "fullname", targetType = FieldType.STRING)
+    private  String fullname;
 
     @Field(name = "status", targetType = FieldType.BOOLEAN)
     private  boolean status;

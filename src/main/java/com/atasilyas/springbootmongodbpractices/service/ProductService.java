@@ -8,14 +8,14 @@ import java.util.List;
 
 public interface ProductService {
 
-    public List<Product> findAll();
+    List<Product> findAll();
 
-    public Product find(ObjectId id);
+    Product find(ObjectId id);
 
-    public void create(Product product);
+    void create(Product product);
 
-    public void delete(Product product);
+    void delete(Product product);
 
-    public void update(Product product);
+    void update(Product product);
 
 }

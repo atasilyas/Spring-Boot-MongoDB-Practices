@@ -6,16 +6,15 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface ProductRepository
-{
-    public List<Product> findAll();
+public interface ProductRepository {
+    List<Product> findAll();
 
-    public Product find(ObjectId id);
+    Product find(ObjectId id);
 
-    public void create(Product product);
+    void create(Product product);
 
-    public void delete(Product product);
+    void delete(Product product);
 
-    public void update(Product product);
+    void update(Product product);
 
 }

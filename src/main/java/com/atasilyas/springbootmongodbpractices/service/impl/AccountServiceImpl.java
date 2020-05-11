@@ -41,6 +41,6 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void getAccountByStatusAndAndFullNameLike(boolean status, String regex) {
-        accountRepository.getAccountByStatusAndAndFullNameLike(status, regex);
+        accountRepository.getAccountByStatusAndAndFullnameLike(status, regex);
     }
 }
