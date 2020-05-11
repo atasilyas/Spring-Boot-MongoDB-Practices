@@ -1,6 +1,7 @@
 package com.atasilyas.springbootmongodbpractices.advice;
 
 import com.atasilyas.springbootmongodbpractices.service.UserServiceCriteria;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -17,6 +18,7 @@ import org.springframework.web.util.WebUtils;
 
 @RestControllerAdvice
 public class ExceptionHandlingController extends ResponseEntityExceptionHandler {
+
     private static final Logger log = LoggerFactory.getLogger(UserServiceCriteria.class);
 
     @Override
@@ -38,6 +40,7 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler 
     @ExceptionHandler(ResourceAlreadyExistException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
     public String resourceAlreadyExists(ResourceAlreadyExistException ex) {
+        logger.error(ex.getMessage());
         return ex.getMessage();
 
     }
@@ -48,6 +51,7 @@ public class ExceptionHandlingController extends ResponseEntityExceptionHandler 
         response.setException(HttpStatus.NOT_FOUND.name());
         response.setMessage(ex.getMessage());
         response.setDetails(request.getDescription(false));
+        logger.error("Hata alındı" , ex);
 
         return new ResponseEntity<ExceptionResponse>(response, HttpStatus.NOT_FOUND);
     }

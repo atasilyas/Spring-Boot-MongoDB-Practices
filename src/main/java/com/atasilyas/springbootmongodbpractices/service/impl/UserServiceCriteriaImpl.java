@@ -9,6 +9,8 @@ import com.atasilyas.springbootmongodbpractices.service.AccountService;
 import com.atasilyas.springbootmongodbpractices.service.UserServiceCriteria;
 import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +20,8 @@ import java.util.List;
 @Transactional
 @RequiredArgsConstructor
 public class UserServiceCriteriaImpl implements UserServiceCriteria {
+
+    Logger LOGGER =  LoggerFactory.getLogger(UserServiceCriteriaImpl.class);
 
     private final UserRepositoryCriteria userRepositoryCriteria;
 
@@ -35,7 +39,8 @@ public class UserServiceCriteriaImpl implements UserServiceCriteria {
 
     @Override
     public void create(User user) {
-        throw new BusinessException(user.getId(), "Hata");
+        userRepositoryCriteria.create(user);
+        throw  new BusinessException("Hata");
     }
 
     @Override
