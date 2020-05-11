@@ -1,5 +1,6 @@
 package com.atasilyas.springbootmongodbpractices.controller;
 
+import com.atasilyas.springbootmongodbpractices.advice.BusinessException;
 import com.atasilyas.springbootmongodbpractices.model.Product;
 import com.atasilyas.springbootmongodbpractices.model.User;
 import com.atasilyas.springbootmongodbpractices.service.UserServiceCriteria;
@@ -48,14 +49,9 @@ public class UserController {
 
     @RequestMapping(value = "create",
             method = POST)
-    public ResponseEntity<Void> create(@RequestBody User user) {
-        try {
+    public ResponseEntity<?> create(@RequestBody User user) {
             userServiceCriteria.create(user);
             return new ResponseEntity<>(HttpStatus.CREATED);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
 
     }
 

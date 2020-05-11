@@ -1,5 +1,6 @@
 package com.atasilyas.springbootmongodbpractices.service.impl;
 
+import com.atasilyas.springbootmongodbpractices.advice.BusinessException;
 import com.atasilyas.springbootmongodbpractices.model.Account;
 import com.atasilyas.springbootmongodbpractices.model.Product;
 import com.atasilyas.springbootmongodbpractices.model.User;
@@ -34,7 +35,7 @@ public class UserServiceCriteriaImpl implements UserServiceCriteria {
 
     @Override
     public void create(User user) {
-        userRepositoryCriteria.create(user);
+        throw new BusinessException(user.getId(), "Hata");
     }
 
     @Override
